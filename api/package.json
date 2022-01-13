@@ -1,0 +1,40 @@
+{
+  "name": "seo-api",
+  "version": "1.0.0",
+  "description": "SEO checker api",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "node": "node app.js",
+    "server": "nodemon app.js",
+    "start": "concurrently \"npm run server\" \"cd ../client && npm start\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TtaifRS/Seo-API.git"
+  },
+  "keywords": [
+    "SEO"
+  ],
+  "author": "Taif Rahaman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TtaifRS/Seo-API/issues"
+  },
+  "homepage": "https://github.com/TtaifRS/Seo-API#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "helmet": "^5.0.1",
+    "lighthouse": "^9.2.0",
+    "lodash": "^4.17.21",
+    "puppeteer": "^13.0.1",
+    "server-text-width": "^1.0.2",
+    "url-exist": "^3.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
