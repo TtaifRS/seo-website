@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import SearchBarComponent from './components/SearchBarComponents'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
+import SearchBarComponent from './components/HomePage'
 
 const App = () => {
   const [url, setUrl] = useState('')
 
   console.log(url)
   return (
-    <div>
+    <Router>
       <SearchBarComponent getURL={url => setUrl(url)} />
-    </div>
+    </Router>
   )
 }
 

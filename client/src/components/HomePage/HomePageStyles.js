@@ -2,12 +2,12 @@ import styled from 'styled-components'
 
 
 
-export const SearchBarContainer = styled.div`
+export const HomePageContainer = styled.div`
   width: 100vw;
   height: 100vh;
 `
 
-export const SearchBarElement = styled.div`
+export const HomePageElement = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
@@ -15,20 +15,20 @@ export const SearchBarElement = styled.div`
   justify-content: center;
   align-items: center;
 `
-export const SearchBarText = styled.div`
+export const HomePageText = styled.div`
   width: 100%;
   margin: 0 auto;
 `
-export const SearchBarHeading = styled.h1`
+export const HomePageHeading = styled.h1`
   text-align: center;
   font-size: 3rem;
 `
-export const SearchBarP = styled.p``
-export const SearchBarForm = styled.form`
+export const HomePageP = styled.p``
+export const HomePageForm = styled.form`
   max-width: 40rem;
   padding: 1rem;
 `
-export const SearchBarCard = styled.div`
+export const HomePageCard = styled.div`
   background: white;
   padding: 2rem;
   margin-top: 2rem;
@@ -38,22 +38,22 @@ export const SearchBarCard = styled.div`
   
 `
 
-export const SearchBarUserInfo = styled.div`
+export const HomePageUserInfo = styled.div`
  display: flex;
  margin-bottom: 20px;
  justify-content: space-between;
 `
 
-export const SearchBarField = styled.div`
+export const HomePageField = styled.div`
   /* width: 50%;
    */
 `
 
-export const SearchBarLabel = styled.label`
+export const HomePageLabel = styled.label`
   position: relative;
 `
 
-export const SearchBarInputSpan = styled.span`
+export const HomePageInputSpan = styled.span`
   position: absolute;
   left: 0;
   top: 0;
@@ -70,7 +70,7 @@ export const SearchBarInputSpan = styled.span`
   
 `
 
-export const SearchBarInput = styled.input`
+export const HomePageInput = styled.input`
   	box-sizing: border-box;
 	 display: block;
 	 width: 100%;
@@ -80,11 +80,11 @@ export const SearchBarInput = styled.input`
 	 background: transparent;
 	 border-radius: 4px;
 
-   :focus ~ ${SearchBarInputSpan} {
+   :focus ~ ${HomePageInputSpan} {
     transform: translate(0.25rem, -65%) scale(0.8);
 	 color: #fab700;
   }
-  :not(:placeholder-shown) ~${SearchBarInputSpan}{
+  :not(:placeholder-shown) ~${HomePageInputSpan}{
     transform: translate(0.25rem, -65%) scale(0.8);
 	 color: #fab700;
   }
