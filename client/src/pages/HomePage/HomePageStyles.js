@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-
-
+import { Link } from 'react-router-dom'
 
 export const HomePageContainer = styled.div`
   width: 100vw;
@@ -23,7 +22,9 @@ export const HomePageHeading = styled.h1`
   text-align: center;
   font-size: 3rem;
 `
-export const HomePageP = styled.p``
+export const HomePageP = styled.p`
+  text-align: center;
+`
 export const HomePageForm = styled.form`
   max-width: 40rem;
   padding: 1rem;
@@ -91,15 +92,16 @@ export const HomePageInput = styled.input`
 `
 
 export const SearchButtonContainer = styled.div`
-  margin-top: 15px;
+  margin-top: 25px;
 `
 
-export const SearchButton = styled.button`
-  color: blcak;
+export const SearchButton = styled(Link)`
+  color: black;
 	padding: 0.75rem 1.5rem;
-	 background: #fab700;
-	 border: none;
-	 border-radius: 4px;
-	 font-weight: 900;
+	background: #fab700;
+	border: none;
+	border-radius: 4px;
+	font-weight: 900;
+  text-decoration: none;
 `
 

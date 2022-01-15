@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Switch } from 'react-router-dom'
-import SearchBarComponent from './components/HomePage'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import AnalyzePage from './pages/AnalyzePage.js'
+import HomePage from './pages/HomePage'
 
 const App = () => {
   const [url, setUrl] = useState('')
@@ -8,7 +9,15 @@ const App = () => {
   console.log(url)
   return (
     <Router>
-      <SearchBarComponent getURL={url => setUrl(url)} />
+      <Routes>
+        <Route path="/" exact element={<HomePage getURL={url => setUrl(url)} />} />
+
+
+        <Route path="/analyze" element={url !== "" ? <AnalyzePage url={url} /> : <Navigate to="/" />} />
+
+
+      </Routes>
+
     </Router>
   )
 }

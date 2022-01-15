@@ -1,4 +1,6 @@
 import { useState } from 'react'
+
+
 import {
   HomePageContainer,
   HomePageElement,
@@ -15,11 +17,15 @@ import {
   SearchButton,
 } from './HomePageStyles.js'
 
-const HomePageComponent = ({ getURL }) => {
+const HomePage = ({ getURL }) => {
   const [url, setUrl] = useState('')
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    if (url === '') {
+      e.preventDefault()
+    }
+
+
     getURL(url)
   }
 
@@ -38,22 +44,14 @@ const HomePageComponent = ({ getURL }) => {
             </HomePageText>
             <HomePageForm>
               <HomePageCard>
-
                 <HomePageField>
-
                   <HomePageLabel >
-                    <HomePageInput type={'url'} placeholder=" " aria-label='url' value={url} onInput={e => setUrl(e.target.value)} />
+                    <HomePageInput type='url' placeholder=" " aria-label='url' value={url} onInput={e => setUrl(e.target.value)} required />
                     <HomePageInputSpan >Website URL</HomePageInputSpan>
                   </HomePageLabel>
                 </HomePageField>
-                {/* <HomePageField>
-                    <HomePageLabel >
-                      <HomePageInput type={'tel'} placeholder=" " aria-label='email' />
-                      <HomePageInputSpan >Phone Number</HomePageInputSpan>
-                    </HomePageLabel>
-                  </HomePageField> */}
                 <SearchButtonContainer >
-                  <SearchButton onClick={handleSubmit}>Analyze</SearchButton>
+                  <SearchButton to="/analyze" onClick={handleSubmit}>Analyze</SearchButton>
                 </SearchButtonContainer>
               </HomePageCard>
             </HomePageForm>
@@ -64,4 +62,4 @@ const HomePageComponent = ({ getURL }) => {
   )
 }
 
-export default HomePageComponent
+export default HomePage
