@@ -25,10 +25,12 @@ export const puppeteerData = async (url, keyword) => {
       const time1 = Date.now()
       await page.goto(URL, { waitUntil: 'networkidle0', timeout: 0 })
       const time2 = Date.now()
-
+      const base64 = await page.screenshot({ encoding: "base64" })
       await page.evaluate(_ => {
         window.scrollBy(0, window.innerHeight)
       })
+
+
 
       const bodyText = await page.$eval('*', el => el.innerText);
 
@@ -419,7 +421,7 @@ export const puppeteerData = async (url, keyword) => {
           socialMedia,
           pageSpeed,
           mobileFriendly,
-          screenShot,
+          screenShot: base64,
           jsLibraries,
         }
       }

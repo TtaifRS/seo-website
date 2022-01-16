@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import { useNavigate } from 'react-router-dom'
 
 import {
   HomePageContainer,
@@ -29,6 +29,22 @@ const HomePage = ({ getURL }) => {
     getURL(url)
   }
 
+  const navigate = useNavigate();
+
+  const handleKeyPress = (e) => {
+
+    if (url === '') {
+      e.preventDefault()
+    }
+    if (e.key === 'Enter') {
+      getURL(url)
+      navigate('/analyz')
+    }
+
+    console.log("key down")
+
+  }
+
   return (
     <>
       <HomePageContainer>
@@ -51,7 +67,7 @@ const HomePage = ({ getURL }) => {
                   </HomePageLabel>
                 </HomePageField>
                 <SearchButtonContainer >
-                  <SearchButton to="/analyze" onClick={handleSubmit}>Analyze</SearchButton>
+                  <SearchButton to="/analyze" onClick={handleSubmit} onKeyPress={(e) => handleKeyPress(e)}>Analyze</SearchButton>
                 </SearchButtonContainer>
               </HomePageCard>
             </HomePageForm>
