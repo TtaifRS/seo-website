@@ -7,7 +7,7 @@ const cleanPercentage = (percentage) => {
 };
 
 const Circle = ({ colour, pct }) => {
-  const r = 70;
+  const r = 80;
   const circ = 2 * Math.PI * r;
   const strokePct = ((100 - pct) * circ) / 100;
   return (

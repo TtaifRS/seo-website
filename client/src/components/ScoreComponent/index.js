@@ -1,5 +1,4 @@
 
-import { CardContainer, CardScore, CardTitle, ScoreContainer, ScoreContainerFirstRow, } from './ScoreStyles'
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, Cell } from 'recharts'
 
 const ScoreCard = ({ score }) => {
@@ -14,7 +13,6 @@ const ScoreCard = ({ score }) => {
     return '#f44336'
   }
 
-  const barColors = [color(score.generalInfo), color(score.meta)]
 
   const data = [
     {

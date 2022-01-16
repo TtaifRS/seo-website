@@ -58,7 +58,7 @@ const HomePage = ({ getURL }) => {
               </HomePageHeading>
               <HomePageP>Use our FREE SEO Tool to perform on-page search engine optimization analysis</HomePageP>
             </HomePageText>
-            <HomePageForm>
+            <HomePageForm onSubmit={e => { e.preventDefault(); }}>
               <HomePageCard>
                 <HomePageField>
                   <HomePageLabel >

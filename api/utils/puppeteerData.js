@@ -407,6 +407,8 @@ export const puppeteerData = async (url, keyword) => {
         pageSpeed: pageSpeedScore,
         mobileFriendly: mobileFriendlyScore
       }
+
+      await browser.close()
       return {
         success: true,
         status: 200,

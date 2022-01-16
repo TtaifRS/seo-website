@@ -13,9 +13,24 @@ import {
   AnalyzeScore,
   AnalyzHederRight,
   AnalyzTitle,
-  AnalyzScoreContainer
+  AnalyzScoreContainer,
+  AnalyzMetaTitle,
+  AnalyzTitleHeading,
+  AnalyzTitleText,
+  AnalyzTitleDiv,
+  AnalyzTitleTextDiv,
+  AnalyzTable,
+  Thead,
+  TH,
+  TR,
+  TD,
+  Tbody,
+  AnalyzScoreHeader,
+  AnalyzHeaderScoreLeft,
+  AnalyzScoreHederRight
 } from './AnalyzPageStyles'
 import ScoreComponents from '../../components/ScoreComponent'
+import GeneralInfo from '../../components/GenrealInfoComponent'
 
 const AnalyzePage = ({ url }) => {
   const [isLoading, setIsLoading] = useState(true)
@@ -45,30 +60,87 @@ const AnalyzePage = ({ url }) => {
             <>
               <AnalyzContainer>
                 <AnalyzHeaderContainer>
-                  <AnalyzTitle>
-                    <AnalyzH1>{url}</AnalyzH1>
-                  </AnalyzTitle>
-                  <hr />
                   <AnalyzHeader>
                     <AnalyzHeaderLeft>
+                      <AnalyzTitle>
+                        <AnalyzH1>{url}</AnalyzH1>
+                      </AnalyzTitle>
+                      <AnalyzMetaTitle>
+                        <AnalyzTitleDiv>
+                          <AnalyzTitleHeading>Title</AnalyzTitleHeading>
+                        </AnalyzTitleDiv>
+                        <AnalyzTitleTextDiv>
+                          <AnalyzTitleText>{data.data.meta.metaTitle.title}</AnalyzTitleText>
+                        </AnalyzTitleTextDiv>
+                      </AnalyzMetaTitle>
+                      <hr />
+                      <AnalyzMetaTitle>
+                        <AnalyzTitleDiv>
+                          <AnalyzTitleHeading>Description</AnalyzTitleHeading>
+                        </AnalyzTitleDiv>
+                        <AnalyzTitleTextDiv>
+                          <AnalyzTitleText>{data.data.meta.description.getDescription.title}</AnalyzTitleText>
+                        </AnalyzTitleTextDiv>
+                      </AnalyzMetaTitle>
+                      <hr />
+                      <AnalyzMetaTitle>
+                        <AnalyzTitleDiv>
+                          <AnalyzTitleHeading>Library</AnalyzTitleHeading>
+                        </AnalyzTitleDiv>
+                        <AnalyzTable>
+                          <Thead>
+                            <TR>
+                              <TH scope="col">Name</TH>
+                              <TH scope="col">Version</TH>
+                            </TR>
+                          </Thead>
+                          <Tbody>
+
+                            {data.data.jsLibraries.length ?
+                              data.data.jsLibraries.map((item, index) => (
+                                <TR key={index}>
+                                  <TD data-label="name">{item.name}</TD>
+                                  <TD data-label="version">{item.version}</TD>
+                                </TR>
+                              )) : (
+                                <TR>
+                                  <TD></TD>
+                                  <TD></TD>
+                                </TR>
+                              )
+                            }
+
+                          </Tbody>
+                        </AnalyzTable>
+                      </AnalyzMetaTitle>
+                    </AnalyzHeaderLeft>
+                    <AnalyzHederRight>
                       <AnalyzImageContainer>
                         <ScreenShot src={`data:image/png;base64,${data.data.screenShot}`} />
                       </AnalyzImageContainer>
-
-                    </AnalyzHeaderLeft>
-                    <AnalyzHederRight>
-                      <AnalyzScoreContainer>
-                        <AnalyzInfo>
-                          <Pie percentage={data.data.score.totalScore} colour="green" />
-                        </AnalyzInfo>
-                        <AnalyzeScore>
-                          <ScoreComponents score={data.data.score} />
-                        </AnalyzeScore>
-                      </AnalyzScoreContainer>
                     </AnalyzHederRight>
                   </AnalyzHeader>
                 </AnalyzHeaderContainer>
+                <AnalyzScoreContainer>
+                  <AnalyzScoreHeader>
+                    <AnalyzHeaderScoreLeft>
+                      <AnalyzeScore>
+                        <ScoreComponents score={data.data.score} />
+                      </AnalyzeScore>
+                    </AnalyzHeaderScoreLeft>
+                    <AnalyzScoreHederRight>
+                      <AnalyzInfo>
+                        <Pie percentage={data.data.score.totalScore} colour="green" />
 
+                      </AnalyzInfo>
+                      <h2>Total Score</h2>
+                    </AnalyzScoreHederRight>
+                  </AnalyzScoreHeader>
+
+                </AnalyzScoreContainer>
+                <div>
+                  <GeneralInfo generalInfo={data.data.generalInfo} score={data.data.score.generalInfo} />
+                </div>
               </AnalyzContainer>
 
             </>
