@@ -79,8 +79,8 @@ const MetaInfo = ({ metaInfo, score }) => {
             </GDetailHeading>
             <GTitleContainer>
               <GDetailTitle textColor={description.lScore === 1 ? '#4caf50' : '#f44336'}>
-                {description.width}px
-                {description.lscore === 0 ?
+                {description.width ? `${description.width}px` : 'No Description'}
+                {description.lScore === 0 ?
                   <Tooltip title={description.ldesc} placement='right-start' >
 
                     <InfoIcon fontSize='10px' sx={{ marginLeft: '5px', marginBottom: '2px' }} />

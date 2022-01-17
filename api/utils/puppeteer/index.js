@@ -39,7 +39,7 @@ export const firstParaData = async (page) => {
 export const metaDescription = async (page) => {
   const desc = await page.evaluate(() => {
     const el = document.querySelector("head > meta[name='description']")
-    if (el) {
+    if (el && el !== "") {
       return {
         title: el.content,
         score: 1
@@ -58,10 +58,10 @@ export const getMetaData = async (page) => {
   const getTitle = await page.title()
   const getDescription = await metaDescription(page)
 
-  const descriptionTitle = getDescription.title
+  const descriptionTitle = getDescription.score === 1 ? getDescription.title : null
 
   const titleWidth = getTextWidth(getTitle)
-  const descWidth = getTextWidth(descriptionTitle)
+  const descWidth = descriptionTitle ? getTextWidth(descriptionTitle) : null
 
   const ctaWord = ["book now", "order online", "sign up", "buy now", "learn more", "call now", "call us", "subscribe"]
   function contains(target, pattern) {
@@ -82,7 +82,7 @@ export const getMetaData = async (page) => {
 
   const description = {
     getDescription,
-    width: descWidth.toFixed(2),
+    width: descWidth ? descWidth.toFixed(2) : null,
     ctaInDesc
   }
 
@@ -93,11 +93,11 @@ export const getMetaData = async (page) => {
     metaTitle.desc = "Keep Title Length between 285 pixels and 575 pixels"
   }
 
-  if (descWidth < 920) {
+  if (descWidth > 430 && descWidth < 920) {
     description.lScore = 1
   } else {
     description.lScore = 0
-    description.ldesc = "Keep Description length upto 920px"
+    description.ldesc = "Keep Description length between 430px to 920px"
   }
 
   if (ctaInDesc) {
