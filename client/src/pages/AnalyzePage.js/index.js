@@ -37,6 +37,7 @@ import MetaInfo from '../../components/MetaInfoComponent'
 import StructureInfo from '../../components/StructureComponent'
 import PageSpeedInfo from '../../components/PageSpeedInfoComponent'
 import SocialMediaInfo from '../../components/SocialMediaComponent'
+import MobileFriendlyInfo from '../../components/MobileFriendlyInfoComponent'
 
 const AnalyzePage = ({ url }) => {
   const [isLoading, setIsLoading] = useState(true)
@@ -162,6 +163,9 @@ const AnalyzePage = ({ url }) => {
                 </div>
                 <div>
                   <SocialMediaInfo socialInfo={data.data.socialMedia} />
+                </div>
+                <div>
+                  <MobileFriendlyInfo mobileInfo={data.data.mobileFriendly} score={data.data.score.mobileFriendly} />
                 </div>
               </AnalyzContainer>
 

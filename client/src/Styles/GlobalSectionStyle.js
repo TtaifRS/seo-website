@@ -37,6 +37,7 @@ export const Button = styled.button`
 
 export const GHeadingH2 = styled.h2`
   margin-left: 20px;
+  width: 80%;
   
 `
 
