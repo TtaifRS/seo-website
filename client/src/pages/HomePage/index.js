@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 import {
   HomePageContainer,
@@ -17,33 +17,34 @@ import {
   SearchButton,
 } from './HomePageStyles.js'
 
-const HomePage = ({ getURL }) => {
+const HomePage = ({ getURL, getKeyword }) => {
   const [url, setUrl] = useState('')
+  const [keyword, setKeyword] = useState('')
 
   const handleSubmit = (e) => {
-    if (url === '') {
+    if (url === '' || keyword === '') {
       e.preventDefault()
     }
 
-
+    getKeyword(keyword)
     getURL(url)
   }
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleKeyPress = (e) => {
+  // const handleKeyPress = (e) => {
 
-    if (url === '') {
-      e.preventDefault()
-    }
-    if (e.key === 'Enter') {
-      getURL(url)
-      navigate('/analyz')
-    }
+  //   if (url === '') {
+  //     e.preventDefault()
+  //   }
+  //   if (e.key === 'Enter') {
+  //     getURL(url)
+  //     navigate('/analyz')
+  //   }
 
-    console.log("key down")
+  //   console.log("key down")
 
-  }
+  // }
 
   return (
     <>
@@ -66,8 +67,16 @@ const HomePage = ({ getURL }) => {
                     <HomePageInputSpan >Website URL</HomePageInputSpan>
                   </HomePageLabel>
                 </HomePageField>
+                <HomePageField>
+                  <HomePageLabel >
+                    <HomePageInput type='text' placeholder=" " aria-label='keyword' value={keyword} onInput={e => setKeyword(e.target.value)} required />
+                    <HomePageInputSpan >Focus Keyword</HomePageInputSpan>
+                  </HomePageLabel>
+                </HomePageField>
+
+
                 <SearchButtonContainer >
-                  <SearchButton to="/analyze" onClick={handleSubmit} onKeyPress={(e) => handleKeyPress(e)}>Analyze</SearchButton>
+                  <SearchButton to="/analyze" onClick={handleSubmit}>Analyze</SearchButton>
                 </SearchButtonContainer>
               </HomePageCard>
             </HomePageForm>

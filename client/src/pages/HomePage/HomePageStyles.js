@@ -46,12 +46,12 @@ export const HomePageUserInfo = styled.div`
 `
 
 export const HomePageField = styled.div`
-  /* width: 50%;
-   */
+  margin-bottom: 20px;
 `
 
 export const HomePageLabel = styled.label`
   position: relative;
+  
 `
 
 export const HomePageInputSpan = styled.span`

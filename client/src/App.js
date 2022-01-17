@@ -5,19 +5,15 @@ import HomePage from './pages/HomePage'
 
 const App = () => {
   const [url, setUrl] = useState('')
+  const [keyword, setKeyword] = useState('')
 
   console.log(url)
   return (
     <Router>
       <Routes>
-        <Route path="/" exact element={<HomePage getURL={url => setUrl(url)} />} />
-
-
-        <Route path="/analyze" element={url !== "" ? <AnalyzePage url={url} /> : <Navigate to="/" />} />
-
-
+        <Route path="/" exact element={<HomePage getURL={url => setUrl(url)} getKeyword={keyword => setKeyword(keyword)} />} />
+        <Route path="/analyze" element={url !== "" ? <AnalyzePage url={url} keyword={keyword} /> : <Navigate to="/" />} />
       </Routes>
-
     </Router>
   )
 }

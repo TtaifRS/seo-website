@@ -39,7 +39,7 @@ import PageSpeedInfo from '../../components/PageSpeedInfoComponent'
 import SocialMediaInfo from '../../components/SocialMediaComponent'
 import MobileFriendlyInfo from '../../components/MobileFriendlyInfoComponent'
 
-const AnalyzePage = ({ url }) => {
+const AnalyzePage = ({ url, keyword }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [data, setData] = useState('')
   const [err, setErr] = useState(false)
@@ -47,7 +47,7 @@ const AnalyzePage = ({ url }) => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get(`analyzers/?url=${url}`)
+        const res = await axios.get(`analyzers/?url=${url}&keyword=${keyword}`)
         setData(res.data);
         setIsLoading(false)
       } catch (err) {
@@ -58,7 +58,7 @@ const AnalyzePage = ({ url }) => {
     }
     fetchData()
 
-  }, [url])
+  }, [url, keyword])
   return (
     <>
       <div>
