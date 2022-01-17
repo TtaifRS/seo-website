@@ -18,7 +18,7 @@ import {
   GTitleContainer,
   GDetailTitle,
   Button
-} from './GeneralStyles';
+} from '../../Styles/GlobalSectionStyle';
 
 const GeneralInfo = ({ generalInfo, score }) => {
 
