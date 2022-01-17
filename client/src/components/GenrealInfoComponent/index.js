@@ -101,12 +101,12 @@ const GeneralInfo = ({ generalInfo, score }) => {
             <GTitleContainer>
               <GDetailTitle textColor={encode.score === 1 ? '#4caf50' : '#f44336'}>
                 {encode.title}
-                {doctype.score === 0 ?
-                  <encode title="Page should have UTF-8 enocoding" placement='right-start' >
+                {encode.score === 0 ?
+                  <Tooltip title="Page should have UTF-8 enocoding" placement='right-start' >
 
                     <InfoIcon fontSize='10px' sx={{ marginLeft: '5px', marginBottom: '2px' }} />
 
-                  </encode>
+                  </Tooltip>
 
                   : null}
               </GDetailTitle>

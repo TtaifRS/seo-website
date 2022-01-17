@@ -33,6 +33,7 @@ import {
 } from './AnalyzPageStyles'
 import ScoreComponents from '../../components/ScoreComponent'
 import GeneralInfo from '../../components/GenrealInfoComponent'
+import MetaInfo from '../../components/MetaInfoComponent'
 
 const AnalyzePage = ({ url }) => {
   const [isLoading, setIsLoading] = useState(true)
@@ -146,6 +147,9 @@ const AnalyzePage = ({ url }) => {
                 </AnalyzScoreContainer>
                 <div>
                   <GeneralInfo generalInfo={data.data.generalInfo} score={data.data.score.generalInfo} />
+                </div>
+                <div>
+                  <MetaInfo metaInfo={data.data.meta} score={data.data.score.meta} />
                 </div>
               </AnalyzContainer>
 
