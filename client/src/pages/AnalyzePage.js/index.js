@@ -27,7 +27,9 @@ import {
   Tbody,
   AnalyzScoreHeader,
   AnalyzHeaderScoreLeft,
-  AnalyzScoreHederRight
+  AnalyzScoreHederRight,
+  ScoreHeadline,
+  ScoreHeadlineDiv
 } from './AnalyzPageStyles'
 import ScoreComponents from '../../components/ScoreComponent'
 import GeneralInfo from '../../components/GenrealInfoComponent'
@@ -56,7 +58,7 @@ const AnalyzePage = ({ url }) => {
     <>
       <div>
         {isLoading ? "Loading" :
-          data ?
+          data && data.success ?
             <>
               <AnalyzContainer>
                 <AnalyzHeaderContainer>
@@ -122,6 +124,10 @@ const AnalyzePage = ({ url }) => {
                   </AnalyzHeader>
                 </AnalyzHeaderContainer>
                 <AnalyzScoreContainer>
+                  <ScoreHeadlineDiv>
+                    <ScoreHeadline>SEO SCORE</ScoreHeadline>
+                  </ScoreHeadlineDiv>
+
                   <AnalyzScoreHeader>
                     <AnalyzHeaderScoreLeft>
                       <AnalyzeScore>

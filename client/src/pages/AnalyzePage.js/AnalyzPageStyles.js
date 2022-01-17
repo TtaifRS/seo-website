@@ -15,6 +15,8 @@ margin: 10px auto;
 background-color: white
 `
 
+
+
 export const AnalyzHeader = styled.div`
   width: 80%;
   height: 100%;
@@ -30,7 +32,18 @@ export const AnalyzScoreContainer = styled.div`
   width: 80%;
   border-radius: 5px;
   margin: 10px auto;
-  background-color: white
+  background-color: white;
+  height: 100%;
+`
+
+export const ScoreHeadlineDiv = styled.div`
+  margin-top: 20px 0;
+`
+export const ScoreHeadline = styled.h2`
+  text-align: center;
+  position: relative;
+  top: 20px;
+  margin-bottom: 20px;
 `
 
 export const AnalyzScoreHeader = styled.div`

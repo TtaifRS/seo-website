@@ -239,6 +239,9 @@ export const puppeteerData = async (url, keyword) => {
       const tapTargetData = lhAudits["tap-targets"]
 
 
+      await browser.close()
+
+
       const viewPort = {
         title: viewPortData.title,
         score: viewPortData.score
@@ -408,7 +411,7 @@ export const puppeteerData = async (url, keyword) => {
         mobileFriendly: mobileFriendlyScore
       }
 
-      await browser.close()
+
       return {
         success: true,
         status: 200,
