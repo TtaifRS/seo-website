@@ -5,18 +5,18 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import InfoIcon from '@mui/icons-material/Info';
 import Tooltip from '@mui/material/Tooltip';
 import {
-  GContainer,
-  GHeadingContainer,
-  GHeadingTitle,
-  GHeadingH2,
-  GHeadingP,
-  GHeadingButton,
-  GDetailsContainer,
-  GDetailContainer,
-  GDetailHeading,
-  GDetailP,
-  GTitleContainer,
-  GDetailTitle,
+  MContainer,
+  MHeadingContainer,
+  MHeadingTitle,
+  MHeadingH2,
+  MHeadingP,
+  MHeadingButton,
+  MDetailsContainer,
+  MDetailContainer,
+  MDetailHeading,
+  MDetailP,
+  MTitleContainer,
+  MDetailTitle,
   Button
 } from './MetaStyle';
 
@@ -41,44 +41,44 @@ const MetaInfo = ({ metaInfo, score }) => {
 
   return (
     <>
-      <GContainer>
-        <GHeadingContainer borderColor={color(score)}>
-          <GHeadingTitle>
-            <GHeadingH2>Meta Information</GHeadingH2>
-            <GHeadingP borderColor={color(score)}>Score {score}</GHeadingP>
-          </GHeadingTitle>
-          <GHeadingButton>
+      <MContainer>
+        <MHeadingContainer borderColor={color(score)}>
+          <MHeadingTitle>
+            <MHeadingH2>Meta Information</MHeadingH2>
+            <MHeadingP borderColor={color(score)}>Score {score}</MHeadingP>
+          </MHeadingTitle>
+          <MHeadingButton>
             <Button {...getToggleProps()}>
               {isExpanded ? 'Hide Details' : 'See Details'}
             </Button>
-          </GHeadingButton>
-        </GHeadingContainer>
-        <GDetailsContainer {...getCollapseProps()}>
-          <GDetailContainer>
-            <GDetailHeading>
+          </MHeadingButton>
+        </MHeadingContainer>
+        <MDetailsContainer {...getCollapseProps()}>
+          <MDetailContainer>
+            <MDetailHeading>
               {metaTitle.score === 1 ? <CheckCircleOutlineIcon sx={{ color: '#4caf50' }} /> : <CancelIcon sx={{ color: '#f44336' }} />}
-              <GDetailP>Meta Title Width</GDetailP>
-            </GDetailHeading>
-            <GTitleContainer>
-              <GDetailTitle textColor={metaTitle.score === 1 ? '#4caf50' : '#f44336'}>
+              <MDetailP>Meta Title Width</MDetailP>
+            </MDetailHeading>
+            <MTitleContainer>
+              <MDetailTitle textColor={metaTitle.score === 1 ? '#4caf50' : '#f44336'}>
                 {metaTitle.width}px
                 {metaTitle.score === 0 ?
                   <Tooltip title="Meta title width should be greater than 286px and less than 575px" placement='right-start' >
                     <InfoIcon fontSize='10px' sx={{ marginLeft: '5px', marginBottom: '2px' }} />
                   </Tooltip>
                   : null}
-              </GDetailTitle>
-            </GTitleContainer>
-          </GDetailContainer>
+              </MDetailTitle>
+            </MTitleContainer>
+          </MDetailContainer>
           <hr />
-          <GDetailContainer>
-            <GDetailHeading>
+          <MDetailContainer>
+            <MDetailHeading>
               {description.lScore === 1 ? <CheckCircleOutlineIcon sx={{ color: '#4caf50' }} /> : <CancelIcon sx={{ color: '#f44336' }} />}
 
-              <GDetailP>Meta Description Width</GDetailP>
-            </GDetailHeading>
-            <GTitleContainer>
-              <GDetailTitle textColor={description.lScore === 1 ? '#4caf50' : '#f44336'}>
+              <MDetailP>Meta Description Width</MDetailP>
+            </MDetailHeading>
+            <MTitleContainer>
+              <MDetailTitle textColor={description.lScore === 1 ? '#4caf50' : '#f44336'}>
                 {description.width}px
                 {description.lscore === 0 ?
                   <Tooltip title={description.ldesc} placement='right-start' >
@@ -88,18 +88,18 @@ const MetaInfo = ({ metaInfo, score }) => {
                   </Tooltip>
 
                   : null}
-              </GDetailTitle>
-            </GTitleContainer>
-          </GDetailContainer>
+              </MDetailTitle>
+            </MTitleContainer>
+          </MDetailContainer>
           <hr />
-          <GDetailContainer>
-            <GDetailHeading>
+          <MDetailContainer>
+            <MDetailHeading>
               {description.cScore === 1 ? <CheckCircleOutlineIcon sx={{ color: '#4caf50' }} /> : <CancelIcon sx={{ color: '#f44336' }} />}
 
-              <GDetailP>Call to Action</GDetailP>
-            </GDetailHeading>
-            <GTitleContainer>
-              <GDetailTitle textColor={description.cScore === 1 ? '#4caf50' : '#f44336'}>
+              <MDetailP>Call to Action</MDetailP>
+            </MDetailHeading>
+            <MTitleContainer>
+              <MDetailTitle textColor={description.cScore === 1 ? '#4caf50' : '#f44336'}>
                 {description.ctaInDesc ? "True" : "False"}
                 {description.cScore < .5 ?
                   <Tooltip title={description.cDesc} placement='right-start' >
@@ -109,11 +109,11 @@ const MetaInfo = ({ metaInfo, score }) => {
                   </Tooltip>
 
                   : null}
-              </GDetailTitle>
-            </GTitleContainer>
-          </GDetailContainer>
-        </GDetailsContainer>
-      </GContainer>
+              </MDetailTitle>
+            </MTitleContainer>
+          </MDetailContainer>
+        </MDetailsContainer>
+      </MContainer>
 
     </>
   )

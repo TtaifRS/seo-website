@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-export const GContainer = styled.div`
+export const MContainer = styled.div`
   width: 100%;
   margin-top: 80px;
   margin-bottom: 80px;
 `
-export const GHeadingContainer = styled.div`
+export const MHeadingContainer = styled.div`
   width: 80%;
   margin: 0 auto;
   border: 1px solid ${props => props.borderColor};
@@ -17,13 +17,13 @@ export const GHeadingContainer = styled.div`
   padding: 10px;
   
 `
-export const GHeadingTitle = styled.div`
+export const MHeadingTitle = styled.div`
   display: flex;
   align-items: center;
   flex-grow: 1;
 `
 
-export const GHeadingButton = styled.div`
+export const MHeadingButton = styled.div`
   margin-right: 30px;
 `
 
@@ -35,12 +35,12 @@ export const Button = styled.button`
   color: white
 `
 
-export const GHeadingH2 = styled.h2`
+export const MHeadingH2 = styled.h2`
   margin-left: 20px;
   
 `
 
-export const GHeadingP = styled.p`
+export const MHeadingP = styled.p`
   margin-left: 20px;
   padding: 5px 20px;
   border: 3px solid ${props => props.borderColor};
@@ -48,7 +48,7 @@ export const GHeadingP = styled.p`
   font-weight: bold;
 `
 
-export const GDetailsContainer = styled.div`
+export const MDetailsContainer = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 70%;
@@ -56,25 +56,25 @@ export const GDetailsContainer = styled.div`
   margin: 10px auto;
   background-color: white
 `
-export const GDetailContainer = styled.div`
+export const MDetailContainer = styled.div`
   display: flex;
   margin: 0px auto;
 `
-export const GDetailHeading = styled.div`
+export const MDetailHeading = styled.div`
   display: flex;
   align-items: center;
   margin-left: 30px;
   width: 30%;
 `
-export const GDetailP = styled.p`
+export const MDetailP = styled.p`
   margin-left: 20px;
   font-size: 18px;
   
 `
-export const GTitleContainer = styled.div`
+export const MTitleContainer = styled.div`
 width: 70%;
 `
-export const GDetailTitle = styled.p`
+export const MDetailTitle = styled.p`
   margin-left: 80px;
   color: ${props => props.textColor}
 `
