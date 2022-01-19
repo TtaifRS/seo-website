@@ -418,7 +418,7 @@ const GeneralInfo = ({ generalInfo, score }) => {
             <GTitleContainer>
               <GDetailTitle textColor={hreflnag.score === 1 ? '#4caf50' : '#f44336'}>
                 {hreflnag.title}
-                {hreflnag.score === 0 ?
+                {hreflnag.score < 1 ?
                   <Tooltip title="hreflang links tell search engines the URLs for all the versions of a page so that they can display the correct version for each language or region." placement='right-start' >
 
                     <InfoIcon fontSize='10px' sx={{ marginLeft: '5px', marginBottom: '2px' }} />
@@ -439,7 +439,7 @@ const GeneralInfo = ({ generalInfo, score }) => {
             <GTitleContainer>
               <GDetailTitle textColor={canonical.score === 1 ? '#4caf50' : '#f44336'}>
                 {canonical.title}
-                {hreflnag.score === 0 ?
+                {canonical.score < 1 ?
                   <Tooltip title="Canonical links suggest which URL to show on search results" placement='right-start' >
 
                     <InfoIcon fontSize='10px' sx={{ marginLeft: '5px', marginBottom: '2px' }} />

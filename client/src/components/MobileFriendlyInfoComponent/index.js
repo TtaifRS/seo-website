@@ -34,7 +34,7 @@ const MobileFriendlyInfo = ({ mobileInfo, score }) => {
 
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse()
 
-  const { viewPort, fontSize, tapTarget } = mobileInfo
+  const { viewPort } = mobileInfo
 
   return (
     <>
@@ -72,49 +72,6 @@ const MobileFriendlyInfo = ({ mobileInfo, score }) => {
               </GDetailTitle>
             </GTitleContainer>
           </GDetailContainer>
-          <hr />
-          <GDetailContainer>
-            <GDetailHeading>
-              {fontSize.score === 1 ? <CheckCircleOutlineIcon sx={{ color: '#4caf50' }} /> : <CancelIcon sx={{ color: '#f44336' }} />}
-
-              <GDetailP>Font Size</GDetailP>
-            </GDetailHeading>
-            <GTitleContainer>
-              <GDetailTitle textColor={fontSize.score === 1 ? '#4caf50' : '#f44336'}>
-                {fontSize.title}
-                {fontSize.score === 0 ?
-                  <Tooltip title='Many search engines rank pages based on how mobile-friendly they are. Font sizes smaller than 12 px are often difficult to read on mobile devices and may require users to zoom in to display text at a comfortable reading size.' placement='right-start' >
-
-                    <InfoIcon fontSize='10px' sx={{ marginLeft: '5px', marginBottom: '2px' }} />
-
-                  </Tooltip>
-
-                  : null}
-              </GDetailTitle>
-            </GTitleContainer>
-          </GDetailContainer>
-          <hr />
-          <GDetailContainer>
-            <GDetailHeading>
-              {tapTarget.score === 1 ? <CheckCircleOutlineIcon sx={{ color: '#4caf50' }} /> : <CancelIcon sx={{ color: '#f44336' }} />}
-
-              <GDetailP>Tap Target</GDetailP>
-            </GDetailHeading>
-            <GTitleContainer>
-              <GDetailTitle textColor={tapTarget.score === 1 ? '#4caf50' : '#f44336'}>
-                {tapTarget.title}
-                {tapTarget.score < 1 ?
-                  <Tooltip title='Tap targets are the areas of a web page that users on touch devices can interact with. Buttons, links, and form elements all have tap targets.' placement='right-start' >
-
-                    <InfoIcon fontSize='10px' sx={{ marginLeft: '5px', marginBottom: '2px' }} />
-
-                  </Tooltip>
-
-                  : null}
-              </GDetailTitle>
-            </GTitleContainer>
-          </GDetailContainer>
-
 
         </GDetailsContainer>
       </GContainer>

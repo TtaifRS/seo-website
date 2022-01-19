@@ -47,7 +47,7 @@ const AnalyzePage = ({ url, keyword }) => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get(`analyzers/?url=${url}&keyword=${keyword}`)
+        const res = await axios.get(`api/v2/analyzers/?url=${url}&keyword=${keyword}`)
         setData(res.data);
         setIsLoading(false)
       } catch (err) {

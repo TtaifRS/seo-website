@@ -1,6 +1,6 @@
 import lighthouse from 'lighthouse';
 
-export function createLightHouseReportWithBrowser(browser, url, options = { output: "json" }) {
+export function createLightHouseReportWithBrowser(browser, url, options) {
   //allows us to talk via devtools protocol
   const endpoint = browser.wsEndpoint()
   const endpointURL = new URL(endpoint);

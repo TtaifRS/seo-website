@@ -75,16 +75,21 @@ const StructureInfo = ({ heading, link, image, score }) => {
           <hr />
           <GDetailContainer>
             <GDetailHeading>
-              {heading.score === 1 ? <CheckCircleOutlineIcon sx={{ color: '#4caf50' }} /> : <CancelIcon sx={{ color: '#f44336' }} />}
+              {heading.h1score === 1 ? <CheckCircleOutlineIcon sx={{ color: '#4caf50' }} /> : <CancelIcon sx={{ color: '#f44336' }} />}
               <GDetailP>Heading Structure</GDetailP>
             </GDetailHeading>
             <GTitleContainer>
-              <GDetailTitle textColor={heading.score === 1 ? '#4caf50' : '#f44336'}>
+              <GDetailTitle textColor={heading.h1Score === 1 ? '#4caf50' : '#f44336'}>
                 {heading.headerStructure.map((item, index) => (
                   <span key={index}>
                     {(index ? '> ' : '') + item.tagName}
                   </span>
                 ))}
+                {heading.h1Score === 0 ?
+                  <Tooltip title="Heading elements should have one H1 tag" placement='right-start' >
+                    <InfoIcon fontSize='10px' sx={{ marginLeft: '5px', marginBottom: '2px' }} />
+                  </Tooltip>
+                  : null}
               </GDetailTitle>
             </GTitleContainer>
           </GDetailContainer>

@@ -21,16 +21,14 @@ export const puppeteerData = async (url, keyword) => {
 
     const page = await browser.newPage()
     if (validURL) {
-
+      await page.setViewport({ width: 1366, height: 768 })
       const time1 = Date.now()
-      await page.goto(URL, { waitUntil: 'networkidle0', timeout: 0 })
+      await page.goto(URL, { waitUntil: 'networkidle2', timeout: 0 })
       const time2 = Date.now()
       const base64 = await page.screenshot({ encoding: "base64" })
       await page.evaluate(_ => {
         window.scrollBy(0, window.innerHeight)
       })
-
-
 
       const bodyText = await page.$eval('*', el => el.innerText);
 
@@ -109,7 +107,7 @@ export const puppeteerData = async (url, keyword) => {
       const sentenceRatio = await getSentenceRatio(bodyText)
 
       //focuse keyword in first para 
-      const focuseKeywordInParaCheck = await firstPara.title.includes(keyword)
+      const focuseKeywordInParaCheck = firstPara.title ? await firstPara.title.includes(keyword) : false
 
       //meta 
       const meta = await getMetaData(page)
@@ -127,8 +125,10 @@ export const puppeteerData = async (url, keyword) => {
         headerStructure,
       }
 
-      if (countH1 > 1) {
-        headings.desc = `${countH1} H1 tag.`
+      if (countH1 = 0) {
+        headings.h1Score = 0
+      } else {
+        headings.h1Score = 1
       }
 
       //link section 
@@ -184,7 +184,33 @@ export const puppeteerData = async (url, keyword) => {
         browser,
         URL,
         {
-          output: "json"
+          output: "json",
+          screenEmulation: { mobile: false },
+          formFactor: 'desktop',
+          logLevel: 'info',
+          onlyAudits: [
+            "first-contentful-paint",
+            "speed-index",
+            "largest-contentful-paint",
+            "interactive",
+            "total-blocking-time",
+            "cumulative-layout-shift",
+            "is-on-https",
+            "doctype",
+            "redirects",
+            "dom-size",
+            "errors-in-console",
+            "geolocation-on-start",
+            "notification-on-start",
+            "hreflang",
+            "canonical",
+            "robots-txt",
+            "heading-order",
+            "crawlable-anchors",
+            "image-alt",
+            "js-libraries",
+            "viewport",
+          ],
         }
       )
 
@@ -222,8 +248,6 @@ export const puppeteerData = async (url, keyword) => {
       images.title = altImage.title
       images.score = altImage.score
 
-      //screenShot
-      const screenShot = lhAudits["final-screenshot"]?.["details"]?.["data"]
 
       //js library 
       const jsLibraries = lhAudits["js-libraries"]?.["details"]?.["items"]?.map(item => {
@@ -235,8 +259,6 @@ export const puppeteerData = async (url, keyword) => {
 
       //mobile friendly 
       const viewPortData = lhAudits["viewport"]
-      const fontSizeData = lhAudits["font-size"]
-      const tapTargetData = lhAudits["tap-targets"]
 
 
       await browser.close()
@@ -247,20 +269,9 @@ export const puppeteerData = async (url, keyword) => {
         score: viewPortData.score
       }
 
-      const fontSize = {
-        title: fontSizeData.title,
-        score: fontSizeData.score
-      }
-
-      const tapTarget = {
-        title: tapTargetData.title,
-        score: tapTargetData.score
-      }
 
       const mobileFriendly = {
         viewPort,
-        fontSize,
-        tapTarget
       }
 
 
@@ -375,10 +386,10 @@ export const puppeteerData = async (url, keyword) => {
         meta.metaTitle.score +
         meta.description.lScore +
         meta.description.cScore
-      )) * 5
+      )) * 20
 
       //structure score 
-      const headingScore = headings.score * 100
+      const headingScore = Math.round(((headings.score + headings.h1Score) / 2) * 100)
       const imageScore = images.score * 100
       const linkScore = links.score * 100
 
@@ -389,16 +400,16 @@ export const puppeteerData = async (url, keyword) => {
       const pageSpeedScore = Math.round(fcp.score + spi.score + lcp.score + tti.score + tbt.score + cls.score)
 
       //mobileFriendlyScore 
-      const mobileFriendlyScore = Math.round(((viewPort.score + fontSize.score + tapTarget.score) / 3) * 100)
+      const mobileFriendlyScore = Math.round(viewPort.score * 100)
 
       //totalScore
       const totalScore = Math.round(
         (generalInfoScore * 0.25) +
-        (metaScore * 0.15) +
-        (structureScore * 0.15) +
+        (metaScore * 0.20) +
+        (structureScore * 0.20) +
         (socialMedia.score * 0.05) +
         (pageSpeedScore * 0.25) +
-        (mobileFriendlyScore * 0.15)
+        (mobileFriendlyScore * 0.05)
       )
 
       const score = {

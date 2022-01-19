@@ -27,10 +27,17 @@ export const encodeData = async (page) => {
 export const firstParaData = async (page) => {
   const para = await page.evaluate(() => {
     const el = document.querySelector("p")
-    return {
-      title: el.innerText,
-      score: 1
+    if (el) {
+      return {
+        title: el.innerText,
+        score: 1
+      }
+    } else {
+      return {
+        score: 0
+      }
     }
+
   })
 
   return para
@@ -72,7 +79,7 @@ export const getMetaData = async (page) => {
     return (value === 1)
   }
 
-  const ctaInDesc = contains(descriptionTitle.toLowerCase(), ctaWord)
+  const ctaInDesc = descriptionTitle ? contains(descriptionTitle.toLowerCase(), ctaWord) : false
 
 
   const metaTitle = {
@@ -153,10 +160,8 @@ export const getSentenceRatio = async (bodyText) => {
 export const headersData = async (page) => {
   const header = await page.$$eval('h1, h2, h3, h4, h5, h6', element => element.map(htag => {
     const tagName = htag.tagName
-    const content = htag.textContent
     return {
       tagName,
-      content
     }
   }))
   return header
