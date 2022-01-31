@@ -75,7 +75,7 @@ const StructureInfo = ({ heading, link, image, score }) => {
           <hr />
           <GDetailContainer>
             <GDetailHeading>
-              {heading.h1score === 1 ? <CheckCircleOutlineIcon sx={{ color: '#4caf50' }} /> : <CancelIcon sx={{ color: '#f44336' }} />}
+              {heading.h1Score === 1 ? <CheckCircleOutlineIcon sx={{ color: '#4caf50' }} /> : <CancelIcon sx={{ color: '#f44336' }} />}
               <GDetailP>Heading Structure</GDetailP>
             </GDetailHeading>
             <GTitleContainer>

@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const ScoreContainer = styled.div`
-  width: 80%;
-  margin: 20px auto;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
-  transition: 0.3s;
-  border-radius: 5px;
-  padding: 10px;
+  width: 100%;
+  height: 100%;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
  
 `
 

@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom'
 export const HomePageContainer = styled.div`
   width: 100vw;
   height: 100vh;
+
+  @media screen and (max-width:768px){
+    display: none;
+  }
 `
 
 export const HomePageElement = styled.div`

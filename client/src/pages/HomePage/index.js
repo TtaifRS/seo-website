@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import MobilePage from '../../components/MobilePage/index.js'
 // import { useNavigate } from 'react-router-dom'
 
 import {
@@ -48,6 +49,7 @@ const HomePage = ({ getURL, getKeyword }) => {
 
   return (
     <>
+      <MobilePage />
       <HomePageContainer>
         <HomePageElement>
           <div>

@@ -30,9 +30,15 @@ export const GHeadingButton = styled.div`
 export const Button = styled.button`
   border: 1px solid transparent;
   border-radius: 20px;
-  background: blueviolet;
+  background: blanchedalmond;
   padding: 10px 15px;
-  color: white
+  color: black;
+  font-weight: bold;
+  
+  :hover{
+    border: 2px solid blanchedalmond;
+    background: white;
+  }
 `
 
 export const GHeadingH2 = styled.h2`

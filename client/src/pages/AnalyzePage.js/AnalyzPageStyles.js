@@ -4,6 +4,10 @@ export const AnalyzContainer = styled.div`
 margin-top: 60px;
   width: 100vw;
   height: 100%;
+
+  @media screen and (max-width: 768px){
+    display: none;
+  }
 `
 
 export const AnalyzHeaderContainer = styled.div`
@@ -12,7 +16,8 @@ transition: 0.3s;
 width: 80%;
 border-radius: 5px;
 margin: 10px auto;
-background-color: white
+background-color: white;
+
 `
 
 
@@ -24,6 +29,7 @@ export const AnalyzHeader = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-evenly;
+
 `
 
 export const AnalyzScoreContainer = styled.div`
@@ -54,7 +60,9 @@ export const AnalyzScoreHeader = styled.div`
 export const AnalyzHeaderLeft = styled.div`
   width: 60%;
 `
-export const AnalyzHeaderScoreLeft = styled.div``
+export const AnalyzHeaderScoreLeft = styled.div`
+ 
+`
 export const AnalyzTitle = styled.div``
 
 export const AnalyzMetaTitle = styled.div`
@@ -74,6 +82,8 @@ export const AnalyzTitleHeading = styled.p`
 
 export const AnalyzTitleTextDiv = styled.div`
   margin-left: 30px;
+
+
 `
 
 
@@ -97,7 +107,7 @@ export const AnalyzeScore = styled.div`
 `
 
 export const AnalyzH1 = styled.h1`
-    
+
 `
 
 export const AnalyzImageContainer = styled.div`
@@ -109,75 +119,61 @@ export const AnalyzImageContainer = styled.div`
 
 export const ScreenShot = styled.img`
   width: 400px;
-  height: 250px;
+  height: 225px;
   padding: 10px;
   margin: 0 40px;
+
 
 `
 
 export const AnalyzInfo = styled.div`
 
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+display: flex;
+justify-content: center;
+margin-top: 20px;
 `
 
 
 export const AnalyzTable = styled.table`
-  border: 1px solid #ccc;
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  table-layout: fixed;  
-  margin-left: 30px;
-  
-  @media screen and (max-width:768px){
-    border: 0
-  }
+border: 1px solid #ccc;
+border-collapse: collapse;
+margin: 0;
+padding: 0;
+width: 100%;
+table-layout: fixed;
+margin-left: 30px;
+
+
 
 `
 export const Thead = styled.thead`
-  @media screen and (max-width:768px){
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-    
+
+
 
 `
 export const TR = styled.tr`
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  padding: .35em;
-  @media screen and (max-width:768px){
-    border-bottom: 3px solid #ddd;
-    display: block;
-    margin-bottom: .625em;
-  }
+background-color: #f8f8f8;
+border: 1px solid #ddd;
+padding: .35em;
+
 `
 export const TH = styled.th`
-  padding: .625em;
-  text-align: center;
-  font-size: .85em;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+padding: .625em;
+text-align: center;
+font-size: .85em;
+letter-spacing: .1em;
+text-transform: uppercase;
 `
 export const Tbody = styled.tbody``
 export const TD = styled.td`
-  padding: .625em;
-  text-align: center;
+padding: .625em;
+text-align: center;
 
-  @media screen and (max-width:768px){
-    border-bottom: 1px solid #ddd;
-    display: block;
-    font-size: .8em;
-    text-align: right;
+@media screen and(max-width: 768px){
+  border-bottom: 1px solid #ddd;
+  display: block;
+  font-size: .8em;
+  text-align: right;
 
     &:before{
     content: attr(data-label);
@@ -187,8 +183,32 @@ export const TD = styled.td`
   }
 
     &:last-child{
-      border-bottom: 0;
-    }
+    border-bottom: 0;
   }
-  
+}
+
+`
+export const ButtonContainer = styled.div`
+display: flex;
+justify-content: center;
+margin-top: -10px;
+margin-bottom: 30px;
+@media screen and (max-width: 768px){
+    display: none;
+  }
+`
+
+export const PrintButton = styled.button`
+border: none;
+padding: 10px 15px;
+background-color: #fab700;
+font-weight: bold;
+cursor: pointer;
+color: white;
+
+  :hover{
+  border: 2px solid #fab700;
+  background-color: white;
+  color: black;
+}
 `
